@@ -66,11 +66,8 @@ CCS-Net demonstrates superior performance vs. lightweight models (YOLOv5n/v8n) a
 git clone https://github.com/your-username/CCS-Net.git
 cd CCS-Net
 
-# Install dependencies
-pip install -r requirements.txt
-# (Ensure opencv-python, matplotlib, numpy, and torch are included)
 
-## 📂 Datasets
+## 📂 Model Architecture
 
 This project evaluates the proposed CCS-Net on two public Synthetic Aperture Radar (SAR) datasets: **SAR-Aircraft-1.0** and **SADD**.
 
@@ -93,21 +90,4 @@ A dataset collected from multiple satellite sources, focusing on single-aircraft
 *   **Instances:** 7,835 aircraft
 *   **🔗 Reference:** [IEEE Xplore (SADD Paper)](https://ieeexplore.ieee.org/document/9695449)
 
----
 
-### 📁 Directory Structure
-
-To align with the project configuration, please organize the datasets within the `data/` directory as follows:
-
-```text
-data/
-├── SAR-Aircraft-1.0/
-│   ├── images/
-│   │   ├── train/      # Training images
-│   │   └── val/        # Validation images
-│   └── labels/
-│       ├── train/      # YOLO format labels
-│       └── val/
-└── SADD/
-    ├── images/
-    └── labels/
