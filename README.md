@@ -79,7 +79,7 @@ A challenging dataset with fine-grained recognition labels, collected from the G
 *   **Images:** 4,368 images (Sizes: 800×800 to 1500×1500)
 *   **Instances:** 17,943 aircraft
 *   **Categories (7):** A320/321, A220, ARJ21, A330, Boeing 737, Boeing 787, Other.
-*   **🔗 Download:** [Official Website (Journal of Radars)](http://radars.ac.cn/web/data/getData?dataType=SAR-Aircraft-1.0)
+*   **🔗 Download:** [Website](https://radars.ac.cn/cn/article/doi/10.12000/JR23043)
 
 ### 2. SADD (SAR Aircraft Detection Dataset)
 A dataset collected from multiple satellite sources, focusing on single-aircraft target detection.
@@ -88,6 +88,6 @@ A dataset collected from multiple satellite sources, focusing on single-aircraft
 *   **Images:** 2,968 images
 *   **Size:** Uniformly preprocessed to 224 × 224 pixels
 *   **Instances:** 7,835 aircraft
-*   **🔗 Reference:** [IEEE Xplore (SADD Paper)](https://ieeexplore.ieee.org/document/9695449)
+*   **🔗 Reference:** [Website](https://github.com/hust-rslab/SAR-aircraft-data)
 
 
