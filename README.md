@@ -91,4 +91,11 @@ A dataset collected from multiple satellite sources, focusing on single-aircraft
 *   **Instances:** 7,835 aircraft
 *   **🔗 Reference:** [Website](https://github.com/hust-rslab/SAR-aircraft-data)
 
+## 📜 Statement
+
+*   This project is released under the [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license.
+*   本项目采用 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) 协议发布。
+
+*   If you have any questions or need additional data, code, and weight files, please contact us at [baolei20@nudt.edu.cn](mailto:baolei20@nudt.edu.cn) or [lidongfang2022@126.com](mailto:lidongfang2022@126.com).
+*   如有任何问题或者需要其他数据、代码和权重文件，请通过 [lidongfang2022@126.com](mailto:lidongfang2022@126.com) 联系我们。
 
