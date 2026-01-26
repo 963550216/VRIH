@@ -8,9 +8,7 @@ val: D:\ultralytics-yolov8\SAR-aircraft-SADD\val.txt
 
 #test: D:\ultralytics-yolov8\this_datasets\dataSet\test.txt
 
-
-
 nc: 1
 
 # Classes
-names: ['']
+names: [""]
