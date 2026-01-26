@@ -67,7 +67,7 @@ git clone https://github.com/your-username/CCS-Net.git
 cd CCS-Net
 ```
 
-## 📂 Model Architecture
+## 📂 Datasets
 
 This project evaluates the proposed CCS-Net on two public Synthetic Aperture Radar (SAR) datasets: **SAR-Aircraft-1.0** and **SADD**.
 
