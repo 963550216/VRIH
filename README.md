@@ -3,7 +3,7 @@
 [![Framework](https://img.shields.io/badge/Framework-PyTorch-red)](https://pytorch.org/)
 [![License](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
 [![Paper](https://img.shields.io/badge/Paper-Preprint-blue)](https://www.elsevier.com/)
-
+[![Journal](https://img.shields.io/badge/Submitted%20to-Virtual%20Reality%20%26%20Intelligent%20Hardware-orange)](http://www.vrih.net/)
 This repository implements **CCS-Net**, a lightweight and efficient framework for aircraft detection in Synthetic Aperture Radar (SAR) imagery, as described in the paper: **"Enhancing SAR Aircraft Detection with CCS-Net: A Lightweight and Efficient Framework for Manned-Unmanned Teaming Reconnaissance"**.
 
 **Authors:** Lei Bao, Dongfang Li, Chaolong Li, Xianzhong Gao
