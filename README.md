@@ -69,3 +69,45 @@ cd CCS-Net
 # Install dependencies
 pip install -r requirements.txt
 # (Ensure opencv-python, matplotlib, numpy, and torch are included)
+
+## 📂 Datasets
+
+This project evaluates the proposed CCS-Net on two public Synthetic Aperture Radar (SAR) datasets: **SAR-Aircraft-1.0** and **SADD**.
+
+### 1. SAR-Aircraft-1.0
+A challenging dataset with fine-grained recognition labels, collected from the Gaofen-3 satellite.
+
+*   **Source:** Gaofen-3 (Spotlight mode)
+*   **Resolution:** 1 meter
+*   **Images:** 4,368 images (Sizes: 800×800 to 1500×1500)
+*   **Instances:** 17,943 aircraft
+*   **Categories (7):** A320/321, A220, ARJ21, A330, Boeing 737, Boeing 787, Other.
+*   **🔗 Download:** [Official Website (Journal of Radars)](http://radars.ac.cn/web/data/getData?dataType=SAR-Aircraft-1.0)
+
+### 2. SADD (SAR Aircraft Detection Dataset)
+A dataset collected from multiple satellite sources, focusing on single-aircraft target detection.
+
+*   **Sources:** Gaofen-3 (GF-3) and TerraSAR-X
+*   **Images:** 2,968 images
+*   **Size:** Uniformly preprocessed to 224 × 224 pixels
+*   **Instances:** 7,835 aircraft
+*   **🔗 Reference:** [IEEE Xplore (SADD Paper)](https://ieeexplore.ieee.org/document/9695449)
+
+---
+
+### 📁 Directory Structure
+
+To align with the project configuration, please organize the datasets within the `data/` directory as follows:
+
+```text
+data/
+├── SAR-Aircraft-1.0/
+│   ├── images/
+│   │   ├── train/      # Training images
+│   │   └── val/        # Validation images
+│   └── labels/
+│       ├── train/      # YOLO format labels
+│       └── val/
+└── SADD/
+    ├── images/
+    └── labels/
