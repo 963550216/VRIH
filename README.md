@@ -91,6 +91,29 @@ A dataset collected from multiple satellite sources, focusing on single-aircraft
 *   **Instances:** 7,835 aircraft
 *   **🔗 Reference:** [Website](https://github.com/hust-rslab/SAR-aircraft-data)
 
+## 🚀 Usage
+
+The core training and detection scripts are located in the `ultralytics/` directory.
+
+### 1. Training
+To reproduce the results presented in the paper (CCS-Net on SAR-Aircraft-1.0), please execute the `train.py` script located in the `ultralytics` folder.
+
+**Hyperparameters from Paper:**
+*   **Batch Size:** 16
+*   **Epochs:** 100
+*   **Optimizer:** Adam
+*   **Learning Rate:** 0.0004
+
+```bash
+# Run training via the script in ultralytics folder
+python ultralytics/train.py \
+    --model configs/ccs_net.yaml \
+    --data data/sar_aircraft.yaml \
+    --batch 16 \
+    --epochs 100 \
+    --optimizer Adam \
+    --lr0 0.0004
+
 ## 📜 Statement
 
 *   This project is released under the [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license.
