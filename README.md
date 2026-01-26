@@ -113,6 +113,7 @@ python ultralytics/train.py \
     --epochs 100 \
     --optimizer Adam \
     --lr0 0.0004
+```
 
 ## 📜 Statement
 
