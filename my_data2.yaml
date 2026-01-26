@@ -1,0 +1,16 @@
+#train: f:/VOCdevkit/train/images  # train images (relative to 'path') 128 images
+#val: f:/VOCdevkit/val/images  # val images (relative to 'path') 128 images
+#test: f:/VOCdevkit/test/images
+
+train: D:\ultralytics-yolov8\SAR-aircraft-SADD\train.txt
+
+val: D:\ultralytics-yolov8\SAR-aircraft-SADD\val.txt
+
+#test: D:\ultralytics-yolov8\this_datasets\dataSet\test.txt
+
+
+
+nc: 1
+
+# Classes
+names: ['']
