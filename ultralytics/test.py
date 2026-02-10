@@ -1,11 +1,12 @@
 import time
+
 from ultralytics import YOLO
 
 # 加载模型权重
-model = YOLO('D:/ultralytics-yolov8/ultralytics/runs/detect/train9/weights/best.pt')  # 模型路径
+model = YOLO("D:/ultralytics-yolov8/ultralytics/runs/detect/train9/weights/best.pt")  # 模型路径
 
 # 进行推理（可以直接在推理时指定保存，也可以后续手动保存）
-results = model('D:/ultralytics-yolov8/this_datasets/images/0000021.jpg')  # 输入图片路径
+results = model("D:/ultralytics-yolov8/this_datasets/images/0000021.jpg")  # 输入图片路径
 
 t1 = time.time()
 
@@ -20,7 +21,7 @@ else:
 result.save()  # 默认文件名会自动生成，如 '0000002.jpg'
 
 # 方法2：指定保存路径和文件名（推荐）
-save_path = 'D:/ultralytics-yolov8/detection_result21.jpg'  # 自定义路径
+save_path = "D:/ultralytics-yolov8/detection_result21.jpg"  # 自定义路径
 result.save(filename=save_path)  # 保存到指定路径
 
 # 显示图像（可选）
@@ -47,7 +48,7 @@ for i in range(len(boxes)):
         print(f"Center: ({cx}, {cy})")
         print(f"Width: {w}, Height: {h}")
         print(f"Confidence: {confidence}")
-        print('-' * 50)
+        print("-" * 50)
     else:
         print(f"Invalid coordinates format: {coordinates}")
 
