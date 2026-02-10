@@ -3,7 +3,7 @@ import numpy as np
 
 
 def preprocess_image(image_path, target_size=(640, 640)):
-    """将图像预处理为指定大小（640x640）"""
+    """将图像预处理为指定大小（640x640）."""
     img = cv2.imread(image_path)
     if img is None:
         raise ValueError("无法读取图像，请检查路径是否正确")
@@ -28,14 +28,14 @@ def preprocess_image(image_path, target_size=(640, 640)):
     left = (target_w - new_w) // 2
 
     # 将缩放后的图像放入画布
-    padded_img[top:top + new_h, left:left + new_w] = resized_img
+    padded_img[top : top + new_h, left : left + new_w] = resized_img
 
     return padded_img, (scale, top, left)  # 返回预处理后的图像和缩放/填充信息
 
 
-def draw_boxes_after_preprocess(image_path, boxes, output_path='output_preprocessed21.jpg'):
+def draw_boxes_after_preprocess(image_path, boxes, output_path="output_preprocessed21.jpg"):
     # 预处理图像为640x640
-    preprocessed_img, (scale, top, left) = preprocess_image(image_path, (640, 640))
+    preprocessed_img, (_scale, _top, _left) = preprocess_image(image_path, (640, 640))
     target_h, target_w = 640, 640  # 目标尺寸
 
     # 遍历每个边界框
@@ -61,14 +61,7 @@ def draw_boxes_after_preprocess(image_path, boxes, output_path='output_preproces
         # 绘制类别ID和置信度标签
         label = f"Class: {int(cls_id)}"
         cv2.putText(
-            preprocessed_img,
-            label,
-            (x1, y1 - 10),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.5,
-            (255, 255, 255),
-            2,
-            cv2.LINE_AA
+            preprocessed_img, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
         )
 
     # 保存结果
@@ -83,18 +76,17 @@ def draw_boxes_after_preprocess(image_path, boxes, output_path='output_preproces
 
 # 边界框数据（类别ID, 中心点x(归一化), 中心点y(归一化), 宽(归一化), 高(归一化)）
 boxes = [
-
-[1, 0.287, 0.4646666666666667, 0.051333333333333335, 0.04533333333333333],
-[3, 0.36733333333333335, 0.451, 0.044, 0.046],
-[4, 0.20833333333333331, 0.9143333333333333, 0.04733333333333333, 0.048666666666666664],
-[4, 0.059, 0.9333333333333333, 0.046, 0.048],
-[4, 0.13833333333333334, 0.9323333333333333, 0.054, 0.051333333333333335]
+    [1, 0.287, 0.4646666666666667, 0.051333333333333335, 0.04533333333333333],
+    [3, 0.36733333333333335, 0.451, 0.044, 0.046],
+    [4, 0.20833333333333331, 0.9143333333333333, 0.04733333333333333, 0.048666666666666664],
+    [4, 0.059, 0.9333333333333333, 0.046, 0.048],
+    [4, 0.13833333333333334, 0.9323333333333333, 0.054, 0.051333333333333335],
 ]
 
 # 调用函数（替换为你的图像路径）
 draw_boxes_after_preprocess(
     image_path="D:/ultralytics-yolov8/this_datasets/images/0000021.jpg",  # 输入图像路径
-    boxes=boxes
+    boxes=boxes,
 )
 # # 调用函数绘制框（替换为你的图像路径）
 # draw_boxes(
