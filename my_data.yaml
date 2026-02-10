@@ -8,9 +8,7 @@ val: D:\ultralytics-yolov8\this_datasets\dataSet\val.txt
 
 #test: D:\ultralytics-yolov8\this_datasets\dataSet\test.txt
 
-
-
 nc: 7
 
 # Classes
-names: ['Boeing787', 'Boeing737', 'A330', 'other', 'A220', 'ARJ21', 'A320/321']
+names: ["Boeing787", "Boeing737", "A330", "other", "A220", "ARJ21", "A320/321"]
