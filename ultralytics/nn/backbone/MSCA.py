@@ -1,21 +1,22 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
+
 
 class MultiScaleContextBlock(nn.Module):
     def __init__(self, in_channels, inter_channels=None):
         """
         Args:
             in_channels (int): 输入特征图的通道数
-            inter_channels (int): 内部中间层的通道数。如果不指定，默认等于 in_channels / 2
+            inter_channels (int): 内部中间层的通道数。如果不指定，默认等于 in_channels / 2.
         """
-        super(MultiScaleContextBlock, self).__init__()
+        super().__init__()
 
         # 如果没有指定中间通道数，默认设为输入的一半以减少计算量，
         # 或者设为与输入相同（取决于具体论文配置，这里为了通用性设为一半，
         # 如果想要保持通道数不缩减，可以传值 inter_channels=in_channels）
         self.inter_channels = inter_channels if inter_channels is not None else in_channels // 2
-        if self.inter_channels == 0: self.inter_channels = 1 # 防止通道过小
+        if self.inter_channels == 0:
+            self.inter_channels = 1  # 防止通道过小
 
         # ---------------------------
         # Step 1: 顶部的 Conv 1x1
@@ -23,7 +24,7 @@ class MultiScaleContextBlock(nn.Module):
         self.conv_head = nn.Sequential(
             nn.Conv2d(in_channels, self.inter_channels, kernel_size=1, bias=False),
             nn.BatchNorm2d(self.inter_channels),
-            nn.ReLU(inplace=True)
+            nn.ReLU(inplace=True),
         )
 
         # ---------------------------
@@ -37,9 +38,7 @@ class MultiScaleContextBlock(nn.Module):
 
         # 分支 B: Conv 1x1
         self.branch_conv1x1 = nn.Sequential(
-            nn.Conv2d(self.inter_channels, c1, kernel_size=1, bias=False),
-            nn.BatchNorm2d(c1),
-            nn.ReLU(inplace=True)
+            nn.Conv2d(self.inter_channels, c1, kernel_size=1, bias=False), nn.BatchNorm2d(c1), nn.ReLU(inplace=True)
         )
 
         # 分支 C: Dilated Conv (r=2)
@@ -47,26 +46,25 @@ class MultiScaleContextBlock(nn.Module):
         self.branch_dilated_2 = nn.Sequential(
             nn.Conv2d(self.inter_channels, c2, kernel_size=3, padding=2, dilation=2, bias=False),
             nn.BatchNorm2d(c2),
-            nn.ReLU(inplace=True)
+            nn.ReLU(inplace=True),
         )
 
         # 分支 D: Dilated Conv (r=4)
         self.branch_dilated_4 = nn.Sequential(
             nn.Conv2d(self.inter_channels, c3, kernel_size=3, padding=4, dilation=4, bias=False),
             nn.BatchNorm2d(c3),
-            nn.ReLU(inplace=True)
+            nn.ReLU(inplace=True),
         )
 
         # ---------------------------
         # Step 3: 定义注意力分支 (Global Avg Pooling -> Conv 1x1)
         # ---------------------------
         self.gap = nn.AdaptiveAvgPool2d(1)
-        
+
         # 这个 1x1 卷积输出的通道数必须与 Concat 后的通道数一致 (即 in_channels)
         # 这里的激活函数通常是 Sigmoid，用于生成 0~1 之间的权重
         self.conv_attn = nn.Sequential(
-            nn.Conv2d(self.inter_channels, in_channels, kernel_size=1, bias=False),
-            nn.Sigmoid() 
+            nn.Conv2d(self.inter_channels, in_channels, kernel_size=1, bias=False), nn.Sigmoid()
         )
 
     def forward(self, x):
@@ -100,20 +98,21 @@ class MultiScaleContextBlock(nn.Module):
 
         return output
 
+
 # 测试代码
 if __name__ == "__main__":
     # 假设输入: Batch=2, Channel=64, Height=32, Width=32
     input_tensor = torch.randn(2, 64, 32, 32)
-    
+
     # 初始化模块
     model = MultiScaleContextBlock(in_channels=64)
-    
+
     # 前向传播
     output = model(input_tensor)
-    
+
     print(f"Input shape: {input_tensor.shape}")
     print(f"Output shape: {output.shape}")
-    
+
     # 验证输入输出尺寸是否一致
     assert input_tensor.shape == output.shape, "Error: Shapes do not match!"
     print("Test passed: Output shape matches input shape.")
