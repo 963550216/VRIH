@@ -1,12 +1,11 @@
-import cv2
 import os
-import numpy as np
 from pathlib import Path
+
+import cv2
 
 
 def apply_clahe_to_folder(input_folder, output_folder, clip_limit=2.0, grid_size=(8, 8)):
-    """
-    对文件夹中的所有图像应用CLAHE方法
+    """对文件夹中的所有图像应用CLAHE方法.
 
     参数:
     - input_folder: 输入图像文件夹路径
@@ -14,7 +13,6 @@ def apply_clahe_to_folder(input_folder, output_folder, clip_limit=2.0, grid_size
     - clip_limit: 对比度限制阈值
     - grid_size: 网格大小，用于局部直方图均衡化
     """
-
     # 创建输出文件夹（如果不存在）
     Path(output_folder).mkdir(parents=True, exist_ok=True)
 
@@ -22,7 +20,7 @@ def apply_clahe_to_folder(input_folder, output_folder, clip_limit=2.0, grid_size
     clahe = cv2.createCLAHE(clipLimit=clip_limit, tileGridSize=grid_size)
 
     # 支持的图像格式
-    supported_formats = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif'}
+    supported_formats = {".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".tif"}
 
     # 遍历输入文件夹中的所有文件
     for filename in os.listdir(input_folder):
@@ -61,7 +59,7 @@ def apply_clahe_to_folder(input_folder, output_folder, clip_limit=2.0, grid_size
                 print(f"已处理: {filename}")
 
             except Exception as e:
-                print(f"处理 {filename} 时出错: {str(e)}")
+                print(f"处理 {filename} 时出错: {e!s}")
 
 
 # 使用方法
